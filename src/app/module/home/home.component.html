@@ -1,0 +1,26 @@
+<div class="cont">
+<mat-toolbar color="primary">
+  <span>Datos de las provincias</span>
+  <div class="example-button-container">
+    <button mat-mini-fab color="basic" (click)="logout()" matTooltip="cerrar sesión">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div class='content'>
+  <mat-form-field>
+    <input matInput type="text" [ngModel]='textInput' (ngModelChange)="valueChange($event)" placeholder="Provincia">
+  </mat-form-field>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let prov of provinces">
+      <mat-card class="mat-elevation-z4 card">
+        <mat-card-title>{{prov["nombre"]}}</mat-card-title>
+        <mat-card-content>
+          <p>Latitud: {{prov["centroide"]["lat"]}}</p>
+          <p>Longitud: {{prov["centroide"]["lon"]}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</div>

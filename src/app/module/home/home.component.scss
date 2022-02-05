@@ -1,0 +1,22 @@
+.content {
+    padding: 20px;
+    background: linear-gradient(top, black, #3f51b5);
+}
+
+.card{
+    opacity: 0.5;
+}
+
+.card:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.cont {
+    background: linear-gradient(white, #c8cce4) !important; 
+    height: 100%;
+}

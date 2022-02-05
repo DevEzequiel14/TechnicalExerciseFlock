@@ -1,0 +1,28 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Login</mat-toolbar>
+    <div fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <mat-form-field>
+        <input matInput type="text" placeholder="usuario" [(ngModel)]="user_login.username" required
+          (keyup.enter)="login()">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="contraseña" [(ngModel)]="user_login.password"
+          required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div fxLayoutAlign="center" class="message"><span>{{message}}</span></div>
+      <mat-checkbox fxLayoutAlign="center" class="check" [(ngModel)]="checkbox" color="primary">Mantenerme logeado
+      </mat-checkbox>
+      <button [disabled]="user_login.username == null || user_login.password == null" mat-raised-button color="primary"
+        (click)="login()">Iniciar sesión</button>
+    </div>
+  </mat-card>
+</div>
+
+<ngx-spinner bdColor="#388e3c" size="medium" color="#fff" type="square-jelly-box">
+  <p class="message-loading">Cargando...</p>
+</ngx-spinner>
